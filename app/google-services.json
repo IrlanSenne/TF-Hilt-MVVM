@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "921704596516",
+    "project_id": "tips-football-47add",
+    "storage_bucket": "tips-football-47add.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921704596516:android:510f7795a6bda5fd6744b1",
+        "android_client_info": {
+          "package_name": "com.original.tipsfootball"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921704596516-6o7q3dqt5747vrl5fk4j5r4reiso52bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLlgQYM67WcjAuQ2rAN_DRrFADx8s-jUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921704596516-6o7q3dqt5747vrl5fk4j5r4reiso52bl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
