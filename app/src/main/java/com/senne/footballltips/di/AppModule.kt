@@ -1,4 +1,4 @@
-package com.original.tipsfootball.di
+package com.senne.footballltips.di
 
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module

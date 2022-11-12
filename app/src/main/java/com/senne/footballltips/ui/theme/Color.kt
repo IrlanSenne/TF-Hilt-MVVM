@@ -1,4 +1,4 @@
-package com.original.tipsfootball.ui.theme
+package com.senne.footballltips.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.original.tipsfootball
+package com.senne.footballltips
 
 import org.junit.Test
 
