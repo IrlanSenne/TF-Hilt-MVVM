@@ -1,9 +1,7 @@
 package com.senne.footballltips.data
 
-import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.senne.footballltips.common.Constants
-import com.senne.footballltips.common.Constants.TIP_COLLECTION
 import com.senne.footballltips.model.FixtureEntity
 import com.senne.footballltips.model.TipsEntity
 import kotlinx.coroutines.coroutineScope

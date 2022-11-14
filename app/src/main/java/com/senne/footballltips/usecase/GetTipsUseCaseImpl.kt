@@ -41,13 +41,16 @@ class GetTipsUseCaseImpl @Inject constructor(
         if (tipsEntity.isNullOrEmpty()) {
             tipsRepository.insertTipsFirebase(listGames)
 
+            delay(300)
             tipsEntity = tipsRepository.getTipsFirebaseCall()
         } else {
-            if (tipsEntity[0].date != "2022-11-13") {
+            if (tipsEntity[0].date != "2022-11-14") {
                 tipsRepository.deleteOldTipsFirebase()
-               // tipsRepository.insertTipsFirebase(listGames)
 
-                delay(1000)
+                delay(300)
+                tipsRepository.insertTipsFirebase(listGames)
+
+                delay(300)
                 tipsEntity = tipsRepository.getTipsFirebaseCall()
             }
         }
