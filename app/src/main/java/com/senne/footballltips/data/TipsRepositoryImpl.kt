@@ -3,6 +3,7 @@ package com.senne.footballltips.data
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.senne.footballltips.common.Constants
+import com.senne.footballltips.common.Constants.TIP_COLLECTION
 import com.senne.footballltips.model.FixtureEntity
 import com.senne.footballltips.model.TipsEntity
 import kotlinx.coroutines.coroutineScope
@@ -22,26 +23,31 @@ class TipsRepositoryImpl @Inject constructor(
             .addOnSuccessListener { result ->
                 mutableData = result.toObjects(TipsEntity::class.java)
             }
-            .addOnFailureListener {
-                Log.d("testFireBase", "Error - $it")
-            }
 
         delay(3000)
         mutableData
     }
 
-    override suspend fun insertTipsFirebase(gameInformations:  List<HashMap<String, Serializable>>) {
+    override suspend fun insertTipsFirebase(gameInformations: List<HashMap<String, Serializable>>) {
 
         gameInformations.forEachIndexed { index, user ->
-            firebaseDB.collection(Constants.tipFootball).document("${Constants.game}$index")
+            firebaseDB.collection(Constants.tipFootball)
+                .document("$index")
                 .set(user)
-                .addOnSuccessListener { documentReference ->
-
-                }
         }
     }
 
-    override suspend fun getTipsApi(date: String): FixtureEntity?  {
+    override suspend fun getTipsApi(date: String): FixtureEntity? {
         return tipsApi.listFixture(date)
+    }
+
+    override suspend fun deleteOldTipsFirebase() {
+        var collection = firebaseDB.collection(Constants.tipFootball).get()
+
+        collection.addOnSuccessListener { result ->
+            result.forEach { test ->
+                firebaseDB.collection(Constants.tipFootball).document(test.id).delete()
+            }
+        }
     }
 }
