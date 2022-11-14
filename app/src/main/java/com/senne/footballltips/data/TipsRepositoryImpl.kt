@@ -7,6 +7,7 @@ import com.senne.footballltips.model.FixtureEntity
 import com.senne.footballltips.model.TipsEntity
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
+import java.io.Serializable
 import javax.inject.Inject
 
 class TipsRepositoryImpl @Inject constructor(
@@ -29,21 +30,9 @@ class TipsRepositoryImpl @Inject constructor(
         mutableData
     }
 
-    override suspend fun insertTipsFirebase() {
-        val gameInformations = hashMapOf(
-            "home_name" to "Benfica3",
-            "home_photo" to "https:sjdkajksad.jpg",
-            "visitant_name" to "Varzim3",
-            "visitant_photo" to "https:sjdkajksad.jpg",
-            "tip" to hashMapOf(
-                "advice" to "varzim or draw",
-                "combo_advice" to "varzim or draw adn + 4.5"
-            )
-        )
+    override suspend fun insertTipsFirebase(gameInformations:  List<HashMap<String, Serializable>>) {
 
-        var listGames = listOf(gameInformations, gameInformations, gameInformations)
-
-        listGames.forEachIndexed { index, user ->
+        gameInformations.forEachIndexed { index, user ->
             firebaseDB.collection(Constants.tipFootball).document("${Constants.game}$index")
                 .set(user)
                 .addOnSuccessListener { documentReference ->
