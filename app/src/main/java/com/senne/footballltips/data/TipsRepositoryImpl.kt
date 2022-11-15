@@ -26,7 +26,7 @@ class TipsRepositoryImpl @Inject constructor(
         mutableData
     }
 
-    override suspend fun insertTipsFirebase(gameInformations: List<HashMap<String, Serializable>>) {
+    override suspend fun insertTipsFirebase(gameInformations: MutableList<HashMap<String, Serializable>>) {
 
         gameInformations.forEachIndexed { index, user ->
             firebaseDB.collection(Constants.tipFootball)

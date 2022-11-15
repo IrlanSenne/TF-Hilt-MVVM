@@ -78,6 +78,9 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.2.2")
+
     // Moshi
     implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
 

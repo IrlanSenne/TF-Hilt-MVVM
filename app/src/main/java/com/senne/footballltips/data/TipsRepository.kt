@@ -6,7 +6,7 @@ import java.io.Serializable
 
 interface TipsRepository {
     suspend fun getTipsFirebaseCall(): MutableList<TipsEntity>
-    suspend fun insertTipsFirebase(gameInformations:  List<HashMap<String, Serializable>>)
+    suspend fun insertTipsFirebase(gameInformations:  MutableList<HashMap<String, Serializable>>)
     suspend fun getTipsApi(date: String): FixtureEntity?
     suspend fun deleteOldTipsFirebase()
 }
