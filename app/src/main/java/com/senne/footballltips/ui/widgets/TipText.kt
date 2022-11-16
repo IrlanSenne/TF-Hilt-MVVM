@@ -4,16 +4,17 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun TipText(
-    value: String,
-    textAlign: TextAlign,
-    fontSize: TextUnit
+    text: String,
+    textAlign: TextAlign = TextAlign.Start,
+    fontSize: TextUnit = 14.sp
 ) {
 
     Text(
-        text = value,
+        text = text,
         textAlign = textAlign,
         fontSize = fontSize
     )

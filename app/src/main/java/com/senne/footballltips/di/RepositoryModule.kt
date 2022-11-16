@@ -4,8 +4,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.senne.footballltips.data.TipsApi
 import com.senne.footballltips.data.TipsRepository
 import com.senne.footballltips.data.TipsRepositoryImpl
-import com.senne.footballltips.usecase.GetTipsUseCase
-import com.senne.footballltips.usecase.GetTipsUseCaseImpl
+import com.senne.footballltips.usecase.GetGamesListUseCase
+import com.senne.footballltips.usecase.GetGamesListUseCaseImpl
+import com.senne.footballltips.usecase.GetTipUseCase
+import com.senne.footballltips.usecase.GetTipUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +25,13 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideGetTipsUseCaseRepository(tipsRepository: TipsRepository): GetTipsUseCase {
-        return GetTipsUseCaseImpl(tipsRepository)
+    fun provideGetTipsUseCaseRepository(tipsRepository: TipsRepository): GetGamesListUseCase {
+        return GetGamesListUseCaseImpl(tipsRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetTipUseCaseRepository(tipsRepository: TipsRepository): GetTipUseCase {
+        return GetTipUseCaseImpl(tipsRepository)
     }
 }

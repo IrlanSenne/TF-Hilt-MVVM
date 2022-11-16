@@ -1,6 +1,7 @@
 package com.senne.footballltips.data
 
 import com.google.firebase.firestore.FirebaseFirestore
+import com.original.tipsfootball.model.PredictionsEntity
 import com.senne.footballltips.common.Constants
 import com.senne.footballltips.model.FixtureEntity
 import com.senne.footballltips.model.TipsEntity
@@ -35,8 +36,12 @@ class TipsRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getTipsApi(date: String): FixtureEntity? {
+    override suspend fun getGamesApi(date: String): FixtureEntity? {
         return tipsApi.listFixture(date)
+    }
+
+    override suspend fun getTipApi(fixture: String): PredictionsEntity? {
+        return tipsApi.getPredictions(fixture)
     }
 
     override suspend fun deleteOldTipsFirebase() {

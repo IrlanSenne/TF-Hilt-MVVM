@@ -9,14 +9,12 @@ import com.senne.footballltips.model.TipsEntity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.io.Serializable
 import java.time.LocalDate
-import java.time.LocalDateTime
 import javax.inject.Inject
 
-class GetTipsUseCaseImpl @Inject constructor(
+class GetGamesListUseCaseImpl @Inject constructor(
     private val tipsRepository: TipsRepository
-) : GetTipsUseCase {
+) : GetGamesListUseCase {
     @RequiresApi(Build.VERSION_CODES.O)
     override suspend fun invoke(): Flow<MutableList<TipsEntity>> = flow {
 
@@ -24,20 +22,20 @@ class GetTipsUseCaseImpl @Inject constructor(
         var tipsEntity = tipsRepository.getTipsFirebaseCall()
 
         if (tipsEntity.isNullOrEmpty()) {
-            var tipsApi = tipsRepository.getTipsApi("2022-11-14")?.toMutableListTipsEntity("2022-11-14")
+            var tipsApi = tipsRepository.getGamesApi(date)?.toMutableListTipsEntity(date)
             tipsRepository.insertTipsFirebase(tipsApi ?: mutableListOf())
 
             emit(tipsRepository.getTipsFirebaseCall())
         } else {
             if (tipsEntity[0].date != date) {
-                var tipsApi = tipsRepository.getTipsApi(date)?.toMutableListTipsEntity(date)
+                var tipsApi = tipsRepository.getGamesApi(date)?.toMutableListTipsEntity(date)
                 tipsRepository.deleteOldTipsFirebase()
 
                 delay(1500)
                 tipsRepository.insertTipsFirebase(tipsApi ?: mutableListOf())
             }
 
-            delay(1000)
+            delay(2000)
             emit(tipsRepository.getTipsFirebaseCall())
         }
     }

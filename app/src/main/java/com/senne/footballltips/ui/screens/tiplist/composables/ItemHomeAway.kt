@@ -10,6 +10,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.senne.footballltips.model.TipsEntity
+import com.senne.footballltips.ui.widgets.TipText
 
 @Composable
 fun ItemHomeAway(tipsEntity: TipsEntity) {
@@ -31,7 +32,10 @@ fun ItemHomeAway(tipsEntity: TipsEntity) {
             )
 
             Spacer(modifier = Modifier.height(16.dp))
-            Text(text = "${tipsEntity.home_name}", textAlign = TextAlign.Center)
+            TipText(
+                text = "${tipsEntity.home_name}",
+                textAlign = TextAlign.Center
+            )
         }
 
         Text(text = "x")
@@ -47,7 +51,10 @@ fun ItemHomeAway(tipsEntity: TipsEntity) {
             )
 
             Spacer(modifier = Modifier.height(16.dp))
-            Text(text = "${tipsEntity.away_name}", textAlign = TextAlign.Center)
+            TipText(
+                text = "${tipsEntity.away_name}",
+                textAlign = TextAlign.Center
+            )
         }
     }
 }

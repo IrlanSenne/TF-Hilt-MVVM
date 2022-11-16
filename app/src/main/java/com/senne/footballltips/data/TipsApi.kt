@@ -11,5 +11,5 @@ interface TipsApi {
 
     @Headers("x-rapidapi-key: c82fadd1860d1c49bd3f13f30797d689", "x-rapidapi-host: v3.football.api-sports.io")
     @GET("predictions")
-    fun listPredictions(@Query("fixture") fixture: String): PredictionsEntity
+    suspend fun getPredictions(@Query("fixture") fixture: String): PredictionsEntity?
 }
