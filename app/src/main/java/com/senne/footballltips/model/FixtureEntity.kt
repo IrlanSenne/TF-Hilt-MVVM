@@ -40,6 +40,5 @@ data class GoalsBothTeams(
 
 data class League(
     var name: String? = null,
-    var country: String? = null,
-    var flag: String? = null
+    var country: String? = null
 )

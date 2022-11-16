@@ -28,8 +28,9 @@ fun TipsListScreen(
         tipsDataFlow?.forEach {
             ItemHomeAway(it)
 
+            Spacer(modifier = Modifier.height(12.dp))
             Divider(modifier = Modifier.fillMaxWidth().height(1.dp))
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(30.dp))
 
         }
     }

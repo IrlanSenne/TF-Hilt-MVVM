@@ -13,8 +13,7 @@ fun FixtureEntity.toMutableListTipsEntity(date: String): MutableList<HashMap<Str
                     ID to (it?.fixture?.id ?: "-"),
                     LEAGUE to hashMapOf(
                         LEAGUE_NAME to (it?.league?.name ?: "-"),
-                        LEAGUE_COUNTRY to (it?.league?.country ?: "-"),
-                        LEAGUE_FLAG to (it?.league?.flag ?: "-")
+                        LEAGUE_COUNTRY to (it?.league?.country ?: "-")
                     ),
                     HOME_NAME to (it.teams?.home?.name ?: "-"),
                     HOME_PHOTO to (it.teams?.home?.logo ?: "-"),
