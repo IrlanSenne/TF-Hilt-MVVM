@@ -3,6 +3,7 @@ package com.senne.footballltips.ui.screens.tiplist
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
@@ -26,8 +27,10 @@ fun TipsListScreen(
 
         tipsDataFlow?.forEach {
             ItemHomeAway(it)
-            
+
+            Divider(modifier = Modifier.fillMaxWidth().height(1.dp))
             Spacer(modifier = Modifier.height(32.dp))
+
         }
     }
 }

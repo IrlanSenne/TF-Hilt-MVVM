@@ -7,6 +7,11 @@ object Constants {
     const val baseUrlApi = "https://v3.football.api-sports.io/"
 }
 
+const val ID = "id"
+const val LEAGUE = "league"
+const val LEAGUE_NAME = "name"
+const val LEAGUE_COUNTRY = "country"
+const val LEAGUE_FLAG = "flag"
 const val HOME_NAME = "home_name"
 const val HOME_PHOTO = "home_photo"
 const val AWAY_NAME = "away_name"

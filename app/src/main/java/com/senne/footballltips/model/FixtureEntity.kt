@@ -6,6 +6,7 @@ data class FixtureEntity (
 
 data class ResponseFixture (
     var fixture: Fixture? = null,
+    var league: League? = null,
     var teams: TeamsFixture? = null,
     var goals: GoalsBothTeams? = null
 )
@@ -35,4 +36,10 @@ data class StatusFixture(
 data class GoalsBothTeams(
     var home: Int? = null,
     var away: Int? = null
+)
+
+data class League(
+    var name: String? = null,
+    var country: String? = null,
+    var flag: String? = null
 )

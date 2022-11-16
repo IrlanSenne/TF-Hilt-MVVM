@@ -14,47 +14,62 @@ import com.senne.footballltips.ui.widgets.TipText
 
 @Composable
 fun ItemHomeAway(tipsEntity: TipsEntity) {
-    Row(
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .height(100.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+        .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(
-            modifier = Modifier.weight(1f),
-            horizontalAlignment = Alignment.CenterHorizontally,
+        Row(
+            modifier = Modifier
+            .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
         ) {
-            Image(
-                painter = rememberAsyncImagePainter(tipsEntity.home_photo),
-                contentDescription = null,
-                modifier = Modifier.size(48.dp)
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-            TipText(
-                text = "${tipsEntity.home_name}",
-                textAlign = TextAlign.Center
-            )
+            //TODO: country and flag
         }
 
-        Text(text = "x")
-
-        Column(
-            modifier = Modifier.weight(1f),
-            horizontalAlignment = Alignment.CenterHorizontally
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                painter = rememberAsyncImagePainter(tipsEntity.away_photo),
-                contentDescription = null,
-                modifier = Modifier.size(48.dp)
-            )
+            Column(
+                modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Image(
+                    painter = rememberAsyncImagePainter(tipsEntity.home_photo),
+                    contentDescription = null,
+                    modifier = Modifier.size(48.dp)
+                )
 
-            Spacer(modifier = Modifier.height(16.dp))
-            TipText(
-                text = "${tipsEntity.away_name}",
-                textAlign = TextAlign.Center
-            )
+                Spacer(modifier = Modifier.height(16.dp))
+                TipText(
+                    text = "${tipsEntity.home_name}",
+                    textAlign = TextAlign.Center
+                )
+            }
+
+            Text(text = tipsEntity.id.toString())
+
+            Column(
+                modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Image(
+                    painter = rememberAsyncImagePainter(tipsEntity.away_photo),
+                    contentDescription = null,
+                    modifier = Modifier.size(48.dp)
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+                TipText(
+                    text = "${tipsEntity.away_name}",
+                    textAlign = TextAlign.Center
+                )
+            }
         }
+
     }
 }
