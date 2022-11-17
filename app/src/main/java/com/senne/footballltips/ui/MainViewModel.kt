@@ -2,7 +2,7 @@ package com.senne.footballltips.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.original.tipsfootball.model.PredictionsEntity
+import com.senne.footballltips.model.PredictionsEntity
 import com.senne.footballltips.model.TipsEntity
 import com.senne.footballltips.usecase.GetGamesListUseCase
 import com.senne.footballltips.usecase.GetTipUseCase

@@ -2,7 +2,7 @@ package com.senne.footballltips.usecase
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.original.tipsfootball.model.PredictionsEntity
+import com.senne.footballltips.model.PredictionsEntity
 import com.senne.footballltips.data.TipsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

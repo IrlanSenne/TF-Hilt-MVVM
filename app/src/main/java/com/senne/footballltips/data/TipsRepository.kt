@@ -1,6 +1,6 @@
 package com.senne.footballltips.data
 
-import com.original.tipsfootball.model.PredictionsEntity
+import com.senne.footballltips.model.PredictionsEntity
 import com.senne.footballltips.model.FixtureEntity
 import com.senne.footballltips.model.TipsEntity
 import java.io.Serializable

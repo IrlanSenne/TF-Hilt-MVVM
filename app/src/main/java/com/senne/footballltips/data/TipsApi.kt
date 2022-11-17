@@ -1,7 +1,7 @@
 package com.senne.footballltips.data
 
 import com.senne.footballltips.model.FixtureEntity
-import com.original.tipsfootball.model.PredictionsEntity
+import com.senne.footballltips.model.PredictionsEntity
 import retrofit2.http.*
 
 interface TipsApi {

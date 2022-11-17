@@ -1,4 +1,4 @@
-package com.original.tipsfootball.model
+package com.senne.footballltips.model
 
 import com.google.gson.annotations.SerializedName
 

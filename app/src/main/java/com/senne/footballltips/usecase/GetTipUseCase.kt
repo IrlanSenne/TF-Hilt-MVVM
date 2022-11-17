@@ -1,6 +1,6 @@
 package com.senne.footballltips.usecase
 
-import com.original.tipsfootball.model.PredictionsEntity
+import com.senne.footballltips.model.PredictionsEntity
 import kotlinx.coroutines.flow.Flow
 
 interface GetTipUseCase {

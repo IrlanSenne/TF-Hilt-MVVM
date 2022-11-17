@@ -1,26 +1,25 @@
 package com.senne.footballltips.ui.screens.tiplist.composables
 
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.senne.footballltips.model.TipsEntity
 import com.senne.footballltips.ui.widgets.TipButton
 import com.senne.footballltips.ui.widgets.TipText
+import com.senne.footballltips.R
+import androidx.compose.ui.res.stringResource
+
 
 @Composable
-fun ItemHomeAway(tipsEntity: TipsEntity) {
-    val context = LocalContext.current
-
+fun ItemHomeAway(
+    tipsEntity: TipsEntity,
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -65,11 +64,11 @@ fun ItemHomeAway(tipsEntity: TipsEntity) {
             }
 
             TipButton(
-                text = tipsEntity.id.toString(),
-                modifier = Modifier.width(80.dp).height(36.dp),
-                onClick = {
-                    Toast.makeText(context, "test", Toast.LENGTH_LONG).show()
-                }
+                text = stringResource(R.string.tip),
+                modifier = Modifier
+                    .width(80.dp)
+                    .height(36.dp),
+                onClick = onClick
             )
 
             Column(
