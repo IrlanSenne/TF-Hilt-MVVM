@@ -8,10 +8,13 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import com.senne.footballltips.R
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
+import com.senne.footballltips.ui.MainViewModel
 import com.senne.footballltips.ui.widgets.TipText
 
 @Composable
@@ -19,6 +22,12 @@ fun AdvicesScreen(
    id: String,
    openOnChange: (Boolean) -> Unit
 ) {
+    val mainViewModel = viewModel<MainViewModel>()
+
+    var tipStateFlow = mainViewModel.tipStateFlow?.collectAsState().value
+
+    mainViewModel.getTip(id)
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -39,6 +48,6 @@ fun AdvicesScreen(
         }
 
         Spacer(modifier = Modifier.height(24.dp))
-        TipText(text = id)
+        TipText(text = "${tipStateFlow?.response}")
     }
 }

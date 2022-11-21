@@ -4,8 +4,6 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -18,6 +16,7 @@ fun TipsListScreen(
     mainViewModel: MainViewModel
 ) {
     var tipsDataFlow = mainViewModel.gamesStateFlow?.collectAsState().value
+
     var openAdviceScreen by remember { mutableStateOf(false) }
     var id by remember { mutableStateOf<Long?>(null) }
 
@@ -46,10 +45,7 @@ fun TipsListScreen(
         AnimatedVisibility(visible = openAdviceScreen) {
             AdvicesScreen(
                 id = id.toString(),
-                openOnChange = {
-                    openAdviceScreen = it
-                    id = null
-                }
+                openOnChange = { openAdviceScreen = it }
             )
         }
     }

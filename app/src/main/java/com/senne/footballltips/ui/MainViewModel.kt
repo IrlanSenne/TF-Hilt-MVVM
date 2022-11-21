@@ -37,7 +37,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun getTip(fixture: String) {
+    fun getTip(fixture: String) {
         viewModelScope.launch {
             getTipUseCase.invoke(fixture).onEach { predictions ->
                 _tipStateFlow.value = predictions
